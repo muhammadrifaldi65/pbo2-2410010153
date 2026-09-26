@@ -17,8 +17,8 @@ public class HaloPBO2 {
         System.out.println();
         
         
-        System.out.println("Versi Jaca     :" + System.getProperty("java.version"));
-        System.out.println("Vendir JDK     :" + System.getProperty("java.vendor"));
+        System.out.println("Versi Java     :" + System.getProperty("java.version"));
+        System.out.println("Vendor JDK     :" + System.getProperty("java.vendor"));
         System.out.println("Sistem Operasi :" + System.getProperty("os.name"));
     }
 }

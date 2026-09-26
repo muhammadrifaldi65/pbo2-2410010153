@@ -14,6 +14,9 @@ import java.util.Map;
 public class Perpustakaan {
     private final List<Koleksi> daftarKoleksi = new ArrayList<>();
     private final Map<String, Anggota> peminjam = new HashMap<>();
+    private final List<Koleksi> cariJudul = new ArrayList<>();
+
+   
 
     public void tambah(Koleksi koleksi) {
         daftarKoleksi.add(koleksi);
@@ -26,6 +29,19 @@ public class Perpustakaan {
         }
         return null;
     }
+    
+   public List<Koleksi> cariJudul(String kataKunci) {
+    List<Koleksi> hasil = new ArrayList<>();
+
+    for (Koleksi k : daftarKoleksi) {
+        if (k.getJudul().toLowerCase().contains(kataKunci.toLowerCase())) {
+            hasil.add(k);
+        }
+    }
+
+    return hasil;
+}
+    
     public boolean pinjam(String kode, Anggota anggota) {
         Koleksi koleksi = cari(kode);
         if (koleksi == null || !koleksi.pinjam()) {

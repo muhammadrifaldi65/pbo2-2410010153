@@ -62,4 +62,5 @@ this.kode = kode;
         return "[" + status + "] " + kode + " " + judul + " (" + tahunTerbit + "), "
                 + keterangan();
     }
+
 }

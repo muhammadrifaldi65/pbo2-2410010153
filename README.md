@@ -14,7 +14,7 @@ menjadi TERSEDIA saat masih dipinjam. Aturan apa yang dilanggar? eror java tidak
 
 # Tangkapan layar keluaran program Perpustakaan 
 <img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/706b1531-a12c-4891-895f-141903989710" />
-(pakai AI untuk menjelaskan eror)
+(pakai AI untuk menjelaskan eror dan menjelaskan alur dari logika cari judul)
 
 
 **Tangkapan layar HaloPBO2**

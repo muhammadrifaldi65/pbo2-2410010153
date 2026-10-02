@@ -4,6 +4,14 @@
  */
 package id.ac.uniska.pbo2.p03;
 
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author FERDY
@@ -17,6 +25,10 @@ public class FormTiketTravel extends javax.swing.JFrame {
      */
     public FormTiketTravel() {
         initComponents();
+        
+        namaField.putClientProperty("JTextField.placeholderText", "Nama lengkap");
+        noHpField.putClientProperty("JTextField.placeholderText", "Contoh: 082358557891");
+        getRootPane().setDefaultButton(kirimButton);
     }
 
     /**
@@ -28,47 +40,238 @@ public class FormTiketTravel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        KelasGroup = new javax.swing.ButtonGroup();
+        namaLabel = new javax.swing.JLabel();
+        noHpLabel = new javax.swing.JLabel();
+        kotaTujuanLabel = new javax.swing.JLabel();
+        kelasLabel = new javax.swing.JLabel();
+        fasilitasTambahanLabel = new javax.swing.JLabel();
+        catatanLabel = new javax.swing.JLabel();
+        namaField = new javax.swing.JTextField();
+        noHpField = new javax.swing.JTextField();
+        kotaCombo = new javax.swing.JComboBox<>();
+        ekonomiRadio = new javax.swing.JRadioButton();
+        bisnisRadio = new javax.swing.JRadioButton();
+        eksekutifRadio = new javax.swing.JRadioButton();
+        bagasiCheck = new javax.swing.JCheckBox();
+        makanCheck = new javax.swing.JCheckBox();
+        asuransiCheck = new javax.swing.JCheckBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        catatanTextArea = new javax.swing.JTextArea();
+        temaToggle = new javax.swing.JToggleButton();
+        kirimButton = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        namaLabel.setText("Nama");
+
+        noHpLabel.setText("No Hp");
+
+        kotaTujuanLabel.setText("Kota tujuan");
+
+        kelasLabel.setText("Kelas");
+
+        fasilitasTambahanLabel.setText("Fasilitas Tambahan");
+
+        catatanLabel.setText("Catatan");
+
+        namaField.addActionListener(this::namaFieldActionPerformed);
+
+        kotaCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Banjarbaru", "Martapura", "Palangka Raya", "Samarinda", "Balikpapan" }));
+
+        KelasGroup.add(ekonomiRadio);
+        ekonomiRadio.setSelected(true);
+        ekonomiRadio.setText("Ekonomi");
+
+        KelasGroup.add(bisnisRadio);
+        bisnisRadio.setText("Bisnis");
+
+        KelasGroup.add(eksekutifRadio);
+        eksekutifRadio.setText("Eksekutif");
+
+        bagasiCheck.setText("Bagasi");
+
+        makanCheck.setText("Makan");
+
+        asuransiCheck.setText("Asuransi");
+
+        catatanTextArea.setColumns(20);
+        catatanTextArea.setRows(3);
+        jScrollPane1.setViewportView(catatanTextArea);
+
+        temaToggle.setText("Mode Gelap");
+        temaToggle.addActionListener(this::temaToggleActionPerformed);
+
+        kirimButton.setText("kirim");
+        kirimButton.addActionListener(this::kirimButtonActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fasilitasTambahanLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(kelasLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ekonomiRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bagasiCheck))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(bisnisRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(eksekutifRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(makanCheck)
+                                .addGap(18, 18, 18)
+                                .addComponent(asuransiCheck)))
+                        .addContainerGap(53, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(catatanLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(namaLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(noHpLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(kotaTujuanLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(noHpField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(namaField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(kotaCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, 309, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(temaToggle)
+                .addGap(30, 30, 30)
+                .addComponent(kirimButton)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(namaLabel)
+                    .addComponent(namaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(noHpLabel)
+                    .addComponent(noHpField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(kotaTujuanLabel)
+                    .addComponent(kotaCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(kelasLabel)
+                    .addComponent(ekonomiRadio)
+                    .addComponent(bisnisRadio)
+                    .addComponent(eksekutifRadio))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fasilitasTambahanLabel)
+                    .addComponent(bagasiCheck)
+                    .addComponent(makanCheck)
+                    .addComponent(asuransiCheck))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(catatanLabel)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(temaToggle)
+                    .addComponent(kirimButton))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void namaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_namaFieldActionPerformed
+
+    private void temaToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_temaToggleActionPerformed
+        gantiTema(temaToggle.isSelected());
+    }//GEN-LAST:event_temaToggleActionPerformed
+
+    private void kirimButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kirimButtonActionPerformed
+        tampilkanRingkasan();
+    }//GEN-LAST:event_kirimButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+        FlatLightLaf.setup();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new FormTiketTravel().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup KelasGroup;
+    private javax.swing.JCheckBox asuransiCheck;
+    private javax.swing.JCheckBox bagasiCheck;
+    private javax.swing.JRadioButton bisnisRadio;
+    private javax.swing.JLabel catatanLabel;
+    private javax.swing.JTextArea catatanTextArea;
+    private javax.swing.JRadioButton ekonomiRadio;
+    private javax.swing.JRadioButton eksekutifRadio;
+    private javax.swing.JLabel fasilitasTambahanLabel;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel kelasLabel;
+    private javax.swing.JButton kirimButton;
+    private javax.swing.JComboBox<String> kotaCombo;
+    private javax.swing.JLabel kotaTujuanLabel;
+    private javax.swing.JCheckBox makanCheck;
+    private javax.swing.JTextField namaField;
+    private javax.swing.JLabel namaLabel;
+    private javax.swing.JTextField noHpField;
+    private javax.swing.JLabel noHpLabel;
+    private javax.swing.JToggleButton temaToggle;
     // End of variables declaration//GEN-END:variables
+
+private void tampilkanRingkasan(){
+    String kelas = ekonomiRadio.isSelected() ? "Ekonomi" :  bisnisRadio.isSelected() ? "Bisnis" : "Eksekutif" ;
+    
+    List<String> fasilitasTambahan = new ArrayList<>();
+    for (JCheckBox cb : List.of(bagasiCheck, makanCheck, asuransiCheck)) {
+        if (cb.isSelected()) {
+            fasilitasTambahan.add(cb.getText());
+        }
+    
+    }
+    
+    String pesan = "Nama :" + namaField.getText()
+            + "\nNo Hp: " + noHpField.getText()
+            + "\nKota Tujuan: " + kotaCombo.getSelectedItem()
+            + "\nKelas: " + kelas
+            + "\nFasilitas Tambahan: " + (fasilitasTambahan.isEmpty() ? "_" : String.join(", ", fasilitasTambahan))
+            +  "\nCatatan: " + catatanTextArea.getText(); 
+    JOptionPane.showMessageDialog(this, pesan, "Data Pendaftaran",
+            JOptionPane.INFORMATION_MESSAGE);
+}
+
+    private void gantiTema(boolean gelap) {
+        if (gelap) {
+            FlatDarkLaf.setup();
+        } else {
+            FlatLightLaf.setup();
+        }
+        FlatLaf.updateUI(); // terapkan tema baru ke semua jendela yang terbuka
+        temaToggle.setText(gelap ? "Mode Terang" : "Mode Gelap");
+    }
+
 }

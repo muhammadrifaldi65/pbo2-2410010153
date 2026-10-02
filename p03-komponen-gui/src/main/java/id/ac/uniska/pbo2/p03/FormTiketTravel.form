@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="KelasGroup">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -23,13 +27,242 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="fasilitasTambahanLabel" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
+                          <Component id="kelasLabel" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="ekonomiRadio" min="-2" pref="98" max="-2" attributes="0"/>
+                          <Component id="bagasiCheck" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="bisnisRadio" min="-2" pref="98" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="eksekutifRadio" min="-2" pref="98" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                              <Component id="makanCheck" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="asuransiCheck" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="53" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="catatanLabel" min="-2" pref="49" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="namaLabel" alignment="1" min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Component id="noHpLabel" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="kotaTujuanLabel" min="-2" pref="64" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="noHpField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="namaField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="kotaCombo" alignment="0" pref="309" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
+              <Component id="temaToggle" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Component id="kirimButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="namaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="namaField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="noHpLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="noHpField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="kotaTujuanLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="kotaCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="kelasLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ekonomiRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bisnisRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="eksekutifRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="fasilitasTambahanLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bagasiCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="makanCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="asuransiCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="catatanLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="temaToggle" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="kirimButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="67" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="namaLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nama"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="noHpLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="No Hp"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="kotaTujuanLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kota tujuan"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="kelasLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kelas"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="fasilitasTambahanLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fasilitas Tambahan"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="catatanLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Catatan"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="namaField">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="namaFieldActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="noHpField">
+    </Component>
+    <Component class="javax.swing.JComboBox" name="kotaCombo">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="5">
+            <StringItem index="0" value="Banjarbaru"/>
+            <StringItem index="1" value="Martapura"/>
+            <StringItem index="2" value="Palangka Raya"/>
+            <StringItem index="3" value="Samarinda"/>
+            <StringItem index="4" value="Balikpapan"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="ekonomiRadio">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="KelasGroup"/>
+        </Property>
+        <Property name="selected" type="boolean" value="true"/>
+        <Property name="text" type="java.lang.String" value="Ekonomi"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="bisnisRadio">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="KelasGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Bisnis"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="eksekutifRadio">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="KelasGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Eksekutif"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="bagasiCheck">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Bagasi"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="makanCheck">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Makan"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="asuransiCheck">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Asuransi"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="catatanTextArea">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="3"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JToggleButton" name="temaToggle">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Mode Gelap"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="temaToggleActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="kirimButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="kirim"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kirimButtonActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
 </Form>

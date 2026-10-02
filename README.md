@@ -14,7 +14,20 @@ menjadi TERSEDIA saat masih dipinjam. Aturan apa yang dilanggar? eror java tidak
 
 # Tangkapan layar keluaran program Perpustakaan 
 <img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/706b1531-a12c-4891-895f-141903989710" />
-(pakai AI untuk menjelaskan eror dan menjelaskan alur dari logika cari judul)
+(pakai AI ChatGpt untuk menjelaskan eror dan menjelaskan alur dari logika cari judul yang ada di class perpustakaan
+'   public List<Koleksi> cariJudul(String kataKunci) {
+    List<Koleksi> hasil = new ArrayList<>();
+
+    for (Koleksi k : daftarKoleksi) {
+        if (k.getJudul().toLowerCase().contains(kataKunci.toLowerCase())) {
+            hasil.add(k);
+        }
+    }
+
+    return hasil;
+}'
+
+)
 
 
 **Tangkapan layar HaloPBO2**

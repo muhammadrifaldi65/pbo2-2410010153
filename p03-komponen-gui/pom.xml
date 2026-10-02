@@ -2,12 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>id.ac.uniska.pbo2</groupId>
-    <artifactId>p02-perpustakaan-mini</artifactId>
+    <artifactId>p03-komponen-gui</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>25</maven.compiler.release>
-        <exec.mainClass>id.ac.uniska.pbo2.p02.AplikasiPerpustakaan,</exec.mainClass>
+        <exec.mainClass>id.ac.uniska.pbo2.p03.P03KomponenGui</exec.mainClass>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>3.5.4</version>
+        </dependency>          
+    </dependencies>
 </project>
+

@@ -78,7 +78,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
 
         headerPerpustakaanPanel.setLayout(new javax.swing.BoxLayout(headerPerpustakaanPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        judulPerpustakaan.setText("Fom Perpustakaan");
+        judulPerpustakaan.setText("Form Perpustakaan");
         headerPerpustakaanPanel.add(judulPerpustakaan);
 
         keteranganPerpusLabel.setText("Lengkapi data diri dengan menggunakan Kartu Tanda Mahasiswa");

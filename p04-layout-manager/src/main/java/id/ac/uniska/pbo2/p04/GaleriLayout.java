@@ -63,6 +63,7 @@ public class GaleriLayout extends javax.swing.JFrame {
         sembilanButton = new javax.swing.JButton();
         boxPanel = new javax.swing.JPanel();
         dashboardButton = new javax.swing.JButton();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 7), new java.awt.Dimension(0, 7), new java.awt.Dimension(32767, 7));
         dataMahasiswaButton = new javax.swing.JButton();
         dataMataKuliahButton = new javax.swing.JButton();
         laporanButton = new javax.swing.JButton();
@@ -165,6 +166,7 @@ public class GaleriLayout extends javax.swing.JFrame {
 
         dashboardButton.setText("Dashboard");
         boxPanel.add(dashboardButton);
+        boxPanel.add(filler1);
 
         dataMahasiswaButton.setText("Data Mahasiswa");
         boxPanel.add(dataMahasiswaButton);
@@ -251,6 +253,7 @@ public class GaleriLayout extends javax.swing.JFrame {
     private javax.swing.JButton eastButton;
     private javax.swing.JButton empatButton;
     private javax.swing.JButton enamButton;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JPanel flowPanel;
     private javax.swing.JPanel gabunganPanel;
     private javax.swing.JPanel gridPanel;

@@ -40,7 +40,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="judulPerpustakaan">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Fom Perpustakaan"/>
+            <Property name="text" type="java.lang.String" value="Form Perpustakaan"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="keteranganPerpusLabel">

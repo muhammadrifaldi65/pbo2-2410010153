@@ -104,21 +104,21 @@ public class KonversiSuhu extends javax.swing.JFrame {
             hasilLabel.setText("Hasil akan tampil di sini");
             return;
         }
-//        try {
-//            double celsius = Double.parseDouble(teks);
-//            String satuan = (String) satuanCombo.getSelectedItem();
-//            double hasil = switch (satuan) {
-//                case "Fahrenheit" ->
-//                    KonverterSuhu.keFahrenheit(celsius);
-//                case "Kelvin" ->
-//                    KonverterSuhu.keKelvin(celsius);
-//                default ->
-//                    KonverterSuhu.keReamur(celsius);
-//            };
-//            hasilLabel.setText(String.format("%.2f %s", hasil, satuan));
-//        } catch (NumberFormatException ex) {
-//            hasilLabel.setText("Masukkan angka yang valid");
-//        }
+        try {
+            double celsius = Double.parseDouble(teks);
+            String satuan = (String) satuanCombo.getSelectedItem();
+            double hasil = switch (satuan) {
+                case "Fahrenheit" ->
+                    KonverterSuhu.keFahrenheit(celsius);
+                case "Kelvin" ->
+                    KonverterSuhu.keKelvin(celsius);
+                default ->
+                    KonverterSuhu.keReamur(celsius);
+            };
+            hasilLabel.setText(String.format("%.2f %s", hasil, satuan));
+        } catch (NumberFormatException ex) {
+            hasilLabel.setText("Masukkan angka yang valid");
+        }
     }
     /**
      * @param args the command line arguments

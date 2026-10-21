@@ -48,6 +48,7 @@ public class KalkulatorSederhana extends javax.swing.JFrame {
         kurangButton = new javax.swing.JButton();
         kaliButton = new javax.swing.JButton();
         bagiButton = new javax.swing.JButton();
+        modulosButton = new javax.swing.JButton();
         bawahPanel = new javax.swing.JPanel();
         hasilLabel = new javax.swing.JLabel();
         hapusButton = new javax.swing.JButton();
@@ -81,6 +82,10 @@ public class KalkulatorSederhana extends javax.swing.JFrame {
         bagiButton.addActionListener(this::bagiButtonActionPerformed);
         operatorPanel.add(bagiButton);
 
+        modulosButton.setText("%");
+        modulosButton.addActionListener(this::modulosButtonActionPerformed);
+        operatorPanel.add(modulosButton);
+
         isiPanel.add(operatorPanel);
 
         bawahPanel.setLayout(new java.awt.BorderLayout(8, 0));
@@ -108,6 +113,10 @@ public class KalkulatorSederhana extends javax.swing.JFrame {
         hitung('/');
     }//GEN-LAST:event_bagiButtonActionPerformed
 
+    private void modulosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modulosButtonActionPerformed
+        hitung('%');
+    }//GEN-LAST:event_modulosButtonActionPerformed
+
     private void hitung(char operator) {
         try {
             double a = Double.parseDouble(angka1Field.getText().trim());
@@ -125,6 +134,8 @@ public class KalkulatorSederhana extends javax.swing.JFrame {
                     a * b;
                 default ->
                     a / b;
+                case '%' ->
+                    a % b;
             };
             hasilLabel.setText("Hasil: " + rapikan(a) + " " + operator + " "
                     + rapikan(b) + " = " + rapikan(hasil));
@@ -169,6 +180,7 @@ public class KalkulatorSederhana extends javax.swing.JFrame {
     private javax.swing.JPanel isianPanel;
     private javax.swing.JButton kaliButton;
     private javax.swing.JButton kurangButton;
+    private javax.swing.JButton modulosButton;
     private javax.swing.JPanel operatorPanel;
     private javax.swing.JButton tambahButton;
     // End of variables declaration//GEN-END:variables

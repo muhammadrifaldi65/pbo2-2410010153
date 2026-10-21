@@ -5,6 +5,7 @@
 package id.ac.uniska.pbo2.p05;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.event.ItemEvent;
 
 /**
  *
@@ -14,6 +15,7 @@ public class PengamatEvent extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PengamatEvent.class.getName());
     private int nomor = 1;
+    
     /**
      * Creates new form PengamatEvent
      */
@@ -112,12 +114,14 @@ public class PengamatEvent extends javax.swing.JFrame {
     }//GEN-LAST:event_klikButtonMouseExited
 
     private void fiturCheckItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fiturCheckItemStateChanged
-        catat("MouseEvent", "kursor keluar dari tombol");
+        String status = fiturCheck.isSelected() ? "kotak dicentang" : "centang dihapus";
+        catat("ItemEvent", status);
     }//GEN-LAST:event_fiturCheckItemStateChanged
     
     private void waktuComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_waktuComboItemStateChanged
-        String status = fiturCheck.isSelected() ? "kotak dicentang" : "centang dihapus";
-        catat("ItemEvent", status);
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            catat("ItemEvent", "memilih " + evt.getItem());
+        }
     }//GEN-LAST:event_waktuComboItemStateChanged
 
     private void isianFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_isianFieldKeyTyped

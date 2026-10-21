@@ -5,6 +5,10 @@
 package id.ac.uniska.pbo2.p04;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,6 +17,7 @@ import com.formdev.flatlaf.FlatLightLaf;
 public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormAnggotaPerpustakaan.class.getName());
+    private javax.swing.JLabel digitLabel;
 
     /**
      * Creates new form FormAnggotaPerpustakaan
@@ -31,6 +36,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         pack(); // hitung ulang ukuran setelah gaya huruf berubah
         setMinimumSize(getSize()); // jendela tidak dapat dikecilkan melebihi ukuran awal
         setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -55,7 +61,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         programStudiLabel = new javax.swing.JLabel();
         jenisAnggotaLabel = new javax.swing.JLabel();
         namaField = new javax.swing.JTextField();
-        npmfield = new javax.swing.JTextField();
+        npmField = new javax.swing.JTextField();
         programCombo = new javax.swing.JComboBox<>();
         mahasiswaRadio = new javax.swing.JRadioButton();
         dosenRadio = new javax.swing.JRadioButton();
@@ -71,10 +77,15 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         alamatArea = new javax.swing.JTextArea();
         tataTertibCheck = new javax.swing.JCheckBox();
         tombolPerpustakaanPanel = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        batalButton = new javax.swing.JButton();
         daftarButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         headerPerpustakaanPanel.setLayout(new javax.swing.BoxLayout(headerPerpustakaanPanel, javax.swing.BoxLayout.Y_AXIS));
 
@@ -135,13 +146,19 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(4, 0, 4, 0);
         formPerpustakaanPanel.add(namaField, gridBagConstraints);
+
+        npmField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                npmFieldKeyReleased(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(4, 0, 4, 0);
-        formPerpustakaanPanel.add(npmfield, gridBagConstraints);
+        formPerpustakaanPanel.add(npmField, gridBagConstraints);
 
         programCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Informatika", "Sistem Infomasi" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -242,6 +259,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         formPerpustakaanPanel.add(jScrollPane1, gridBagConstraints);
 
         tataTertibCheck.setText("Setuju dengan tata tertib perpustakaan");
+        tataTertibCheck.addItemListener(this::tataTertibCheckItemStateChanged);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -255,10 +273,13 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
 
         tombolPerpustakaanPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
-        jButton1.setText("Batal");
-        tombolPerpustakaanPanel.add(jButton1);
+        batalButton.setText("Batal");
+        batalButton.addActionListener(this::batalButtonActionPerformed);
+        tombolPerpustakaanPanel.add(batalButton);
 
         daftarButton.setText("Daftar");
+        daftarButton.setEnabled(false);
+        daftarButton.addActionListener(this::daftarButtonActionPerformed);
         tombolPerpustakaanPanel.add(daftarButton);
 
         getContentPane().add(tombolPerpustakaanPanel, java.awt.BorderLayout.SOUTH);
@@ -266,6 +287,40 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+  
+    private void tataTertibCheckItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_tataTertibCheckItemStateChanged
+        daftarButton.setEnabled(tataTertibCheck.isSelected());
+    }//GEN-LAST:event_tataTertibCheckItemStateChanged
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        int jawab = JOptionPane.showConfirmDialog(this,
+                "Keluar dari aplikasi?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (jawab == JOptionPane.YES_OPTION) {
+            dispose();
+        }
+    }//GEN-LAST:event_formWindowClosing
+
+    private void npmFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_npmFieldKeyReleased
+        updateDigitLabel();
+    }//GEN-LAST:event_npmFieldKeyReleased
+
+    private void daftarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarButtonActionPerformed
+        tampilkanRingkasan();
+    }//GEN-LAST:event_daftarButtonActionPerformed
+
+    private void batalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalButtonActionPerformed
+        namaField.setText("");
+        npmField.setText("");
+        emailField.setText("");
+        hpField.setText("");
+        alamatArea.setText("");
+        
+        npmField.requestFocus();
+    }//GEN-LAST:event_batalButtonActionPerformed
+
+    
+  
     /**
      * @param args the command line arguments
      */
@@ -280,6 +335,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
     private javax.swing.JTextArea alamatArea;
     private javax.swing.JLabel alamatLabel;
     private javax.swing.ButtonGroup anggotaGroup;
+    private javax.swing.JButton batalButton;
     private javax.swing.JButton daftarButton;
     private javax.swing.JLabel dataAnggotaLabel;
     private javax.swing.JRadioButton dosenRadio;
@@ -289,7 +345,6 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
     private javax.swing.JPanel headerPerpustakaanPanel;
     private javax.swing.JTextField hpField;
     private javax.swing.JPanel isiPerpustakaanPanel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jenisAnggotaLabel;
     private javax.swing.JLabel judulPerpustakaan;
@@ -299,8 +354,8 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
     private javax.swing.JTextField namaField;
     private javax.swing.JLabel namaLengkapLabel;
     private javax.swing.JLabel nomorHpLabel;
+    private javax.swing.JTextField npmField;
     private javax.swing.JLabel npmLabel;
-    private javax.swing.JTextField npmfield;
     private javax.swing.JComboBox<String> programCombo;
     private javax.swing.JLabel programStudiLabel;
     private javax.swing.JCheckBox tataTertibCheck;
@@ -308,4 +363,38 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
     private javax.swing.JPanel tombolPerpustakaanPanel;
     private javax.swing.JRadioButton umumRadio;
     // End of variables declaration//GEN-END:variables
+    private void tampilkanRingkasan() {
+        String jenisKelamin = mahasiswaRadio.isSelected() ? "Mahasiswa" : dosenRadio.isSelected() ? "Dosen" : "Umum";
+
+        List<String> tataList = new ArrayList<>();
+        for (JCheckBox cb : List.of(tataTertibCheck)) {
+            if (cb.isSelected()) {
+                tataList.add(cb.getText());
+            }
+
+        }
+
+        String pesan = "Nama :" + namaField.getText()
+                + "\nNPM: " + npmField.getText()
+                + "\nProgram Studi: " + programCombo.getSelectedItem()
+                + "\nJenis Kelamin: " + jenisKelamin
+                + "\nEmail: " + emailField.getText()
+                + "\nNomor Hp: " + hpField.getText()
+                + "\nAlamat: " + alamatArea.getText()
+                + "\nTata Tertib Perpustakaan: " + (tataList.isEmpty() ? "_" : String.join(", ", tataList));
+        JOptionPane.showMessageDialog(this, pesan, "Data Form Anggota Perpustakaan",
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    
+    
+private void updateDigitLabel(){
+    String npm = npmField.getText();
+    int jumlahDigit = npm.length();
+    
+    digitLabel.setText(jumlahDigit + "dari 10 digit");
+
+}
+
+
 }

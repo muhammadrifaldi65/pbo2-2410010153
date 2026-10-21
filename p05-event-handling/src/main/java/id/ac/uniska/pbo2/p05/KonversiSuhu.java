@@ -84,18 +84,19 @@ public class KonversiSuhu extends javax.swing.JFrame {
         konversi();
     }//GEN-LAST:event_celsiusFieldActionPerformed
 
-    private void celsiusFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_celsiusFieldKeyReleased
-        konversi();
-    }//GEN-LAST:event_celsiusFieldKeyReleased
-
     private void satuanComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_satuanComboItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED)
             konversi();
+       
     }//GEN-LAST:event_satuanComboItemStateChanged
 
     private void konversiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_konversiButtonActionPerformed
-        // TODO add your handling code here:
+        konversi();
     }//GEN-LAST:event_konversiButtonActionPerformed
+
+    private void celsiusFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_celsiusFieldKeyReleased
+       konversi();
+    }//GEN-LAST:event_celsiusFieldKeyReleased
 
     private void konversi() {
         String teks = celsiusField.getText().trim().replace(',', '.');
@@ -103,21 +104,21 @@ public class KonversiSuhu extends javax.swing.JFrame {
             hasilLabel.setText("Hasil akan tampil di sini");
             return;
         }
-        try {
-            double celsius = Double.parseDouble(teks);
-            String satuan = (String) satuanCombo.getSelectedItem();
-            double hasil = switch (satuan) {
-                case "Fahrenheit" ->
-                    KonverterSuhu.keFahrenheit(celsius);
-                case "Kelvin" ->
-                    KonverterSuhu.keKelvin(celsius);
-                default ->
-                    KonverterSuhu.keReamur(celsius);
-            };
-            hasilLabel.setText(String.format("%.2f %s", hasil, satuan));
-        } catch (NumberFormatException ex) {
-            hasilLabel.setText("Masukkan angka yang valid");
-        }
+//        try {
+//            double celsius = Double.parseDouble(teks);
+//            String satuan = (String) satuanCombo.getSelectedItem();
+//            double hasil = switch (satuan) {
+//                case "Fahrenheit" ->
+//                    KonverterSuhu.keFahrenheit(celsius);
+//                case "Kelvin" ->
+//                    KonverterSuhu.keKelvin(celsius);
+//                default ->
+//                    KonverterSuhu.keReamur(celsius);
+//            };
+//            hasilLabel.setText(String.format("%.2f %s", hasil, satuan));
+//        } catch (NumberFormatException ex) {
+//            hasilLabel.setText("Masukkan angka yang valid");
+//        }
     }
     /**
      * @param args the command line arguments

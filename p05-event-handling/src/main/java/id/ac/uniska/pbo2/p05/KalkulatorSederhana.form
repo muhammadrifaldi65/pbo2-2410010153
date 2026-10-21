@@ -95,6 +95,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bagiButtonActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JButton" name="modulosButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="%"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modulosButtonActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="bawahPanel">

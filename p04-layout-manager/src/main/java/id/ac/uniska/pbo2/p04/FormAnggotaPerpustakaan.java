@@ -79,6 +79,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        headerPerpustakaanPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 16, 8, 16));
         headerPerpustakaanPanel.setLayout(new javax.swing.BoxLayout(headerPerpustakaanPanel, javax.swing.BoxLayout.Y_AXIS));
 
         judulPerpustakaan.setText("Form Perpustakaan");
@@ -91,6 +92,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
 
         isiPerpustakaanPanel.setLayout(new java.awt.BorderLayout());
 
+        formPerpustakaanPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 16, 8, 16));
         formPerpustakaanPanel.setLayout(new java.awt.GridBagLayout());
 
         dataAnggotaLabel.setText("Data Anggota");
@@ -256,6 +258,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
 
         getContentPane().add(isiPerpustakaanPanel, java.awt.BorderLayout.CENTER);
 
+        tombolPerpustakaanPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(6, 16, 16, 16));
         tombolPerpustakaanPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
         batalButton.setText("Batal");

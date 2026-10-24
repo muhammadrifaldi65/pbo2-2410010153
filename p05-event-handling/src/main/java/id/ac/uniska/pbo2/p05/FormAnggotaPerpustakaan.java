@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormAnggotaPerpustakaan.class.getName());
-    private javax.swing.JLabel digitLabel;
+    
 
     /**
      * Creates new form FormAnggotaPerpustakaan
@@ -76,6 +76,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         alamatArea = new javax.swing.JTextArea();
         tataTertibCheck = new javax.swing.JCheckBox();
+        digitLabel = new javax.swing.JLabel();
         tombolPerpustakaanPanel = new javax.swing.JPanel();
         batalButton = new javax.swing.JButton();
         daftarButton = new javax.swing.JButton();
@@ -159,7 +160,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(4, 0, 4, 0);
+        gridBagConstraints.insets = new java.awt.Insets(4, 0, 20, 0);
         formPerpustakaanPanel.add(npmField, gridBagConstraints);
 
         programCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Informatika", "Sistem Infomasi" }));
@@ -269,6 +270,19 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(4, 0, 4, 0);
         formPerpustakaanPanel.add(tataTertibCheck, gridBagConstraints);
 
+        digitLabel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                digitLabelKeyReleased(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(4, 0, 4, 0);
+        formPerpustakaanPanel.add(digitLabel, gridBagConstraints);
+
         isiPerpustakaanPanel.add(formPerpustakaanPanel, java.awt.BorderLayout.NORTH);
 
         getContentPane().add(isiPerpustakaanPanel, java.awt.BorderLayout.CENTER);
@@ -322,6 +336,10 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         npmField.requestFocus();
     }//GEN-LAST:event_batalButtonActionPerformed
 
+    private void digitLabelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_digitLabelKeyReleased
+        updateDigitLabel();
+    }//GEN-LAST:event_digitLabelKeyReleased
+
     
   
     /**
@@ -341,6 +359,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
     private javax.swing.JButton batalButton;
     private javax.swing.JButton daftarButton;
     private javax.swing.JLabel dataAnggotaLabel;
+    private javax.swing.JLabel digitLabel;
     private javax.swing.JRadioButton dosenRadio;
     private javax.swing.JTextField emailField;
     private javax.swing.JLabel emailLabel;
@@ -394,8 +413,8 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
 private void updateDigitLabel(){
     String npm = npmField.getText();
     int jumlahDigit = npm.length();
-    
-    digitLabel.setText(jumlahDigit + "dari 10 digit");
+
+    digitLabel.setText(jumlahDigit + " "  +  "dari 10 digit");
 
 }
 

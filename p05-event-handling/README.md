@@ -39,8 +39,10 @@ tombol sebaiknya hanya memakai satu cara? **Pesan tercetak dua kali di form dan 
 <img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/3cd171d5-09f4-41cc-bad1-b162780ee3c4" />
 
 # Tangkapan Dialog Di perpustakaan 
-<img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/0c3a8b2f-511a-4a92-9f88-396a07275777" />
-<img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/38ac2a22-c6cf-45d2-af62-a965577ca9e6" />
+<img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/52adf6b9-8c2a-4ef2-838b-878cf2320289" />
+
+<img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/5416477b-b399-4e33-b8e0-030f57f1c9ab" />
+
 
 
 # Memakai AI GEMINI  untuk mencari 10 digit di npm 

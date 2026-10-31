@@ -26,6 +26,7 @@ public class UjiValidator {
         cek("NPM berisi huruf", Validator.npm("24100101ab"), false);
         cek("NPM benar", Validator.npm("2410010123"), true);
         cek("Nama terlalu pendek", Validator.nama("Al"), false);
+        cek("Nama tidak berisi angka", Validator.nama("123"), false);
         cek("Nama benar", Validator.nama("Siti Rahmah"), true);
         cek("Email tanpa domain", Validator.email("siti@"), false);
         cek("Email benar", Validator.email("siti.rahmah@uniska-bjm.ac.id"), true);

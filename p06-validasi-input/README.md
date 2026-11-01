@@ -24,3 +24,6 @@
 
 # TANGKAPAN LAYAR NAVIGATOR
 <img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/00b6beda-3d8c-4511-9d42-f347ed9bdafb" />
+
+# LEMBAR PEER YANG DIISI TEMAN
+<img width="582" height="685" alt="image" src="https://github.com/user-attachments/assets/df072164-7e21-492b-b635-8b14f74cffa4" />

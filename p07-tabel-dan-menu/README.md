@@ -1,3 +1,5 @@
+# PERTANYAAN DAN JAWABAN PRAKTIKUM 5
+
 1. Di KontakTableModel, jadikan baris fireTableRowsInserted(baris, baris); sebagai komentar, lalu
 tambah kontak baru. Apakah tabel langsung berubah? **data tidak tampil ditabel**
 

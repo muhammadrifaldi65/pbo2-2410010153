@@ -134,8 +134,9 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         namaLengkapLabel.setText("Nama Lengkap");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipady = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 1, 6, 12);
+        gridBagConstraints.insets = new java.awt.Insets(0, 1, 11, 12);
         formPerpustakaanPanel.add(namaLengkapLabel, gridBagConstraints);
 
         npmLabel.setDisplayedMnemonic('P');
@@ -144,8 +145,10 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         npmLabel.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 6;
+        gridBagConstraints.ipady = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 1, 6, 12);
+        gridBagConstraints.insets = new java.awt.Insets(3, 1, 4, 12);
         formPerpustakaanPanel.add(npmLabel, gridBagConstraints);
 
         programStudiLabel.setDisplayedMnemonic('R');
@@ -155,7 +158,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 1, 6, 12);
+        gridBagConstraints.insets = new java.awt.Insets(0, 1, 11, 12);
         formPerpustakaanPanel.add(programStudiLabel, gridBagConstraints);
 
         namaField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -168,7 +171,8 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(4, 0, 20, 0);
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(4, 0, 15, 0);
         formPerpustakaanPanel.add(namaField, gridBagConstraints);
 
         npmField.setToolTipText("Isi NPM anda disini");
@@ -191,7 +195,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 31, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 15, 0);
         formPerpustakaanPanel.add(npmField, gridBagConstraints);
 
         programCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Program Studi", "Teknik Informatika", "Sistem Infomasi", "Manajeman Infomatika" }));
@@ -217,7 +221,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 1, 6, 12);
+        gridBagConstraints.insets = new java.awt.Insets(0, 1, 8, 12);
         formPerpustakaanPanel.add(emailLabel, gridBagConstraints);
 
         nomorHpLabel.setDisplayedMnemonic('H');
@@ -225,8 +229,9 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         nomorHpLabel.setText("Nomor HP");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 1, 6, 12);
+        gridBagConstraints.insets = new java.awt.Insets(0, 1, 6, 12);
         formPerpustakaanPanel.add(nomorHpLabel, gridBagConstraints);
 
         alamatLabel.setDisplayedMnemonic('L');
@@ -266,7 +271,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(4, 0, 20, 0);
+        gridBagConstraints.insets = new java.awt.Insets(4, 0, 15, 0);
         formPerpustakaanPanel.add(hpField, gridBagConstraints);
 
         alamatArea.setColumns(20);

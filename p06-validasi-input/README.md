@@ -26,4 +26,7 @@
 <img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/00b6beda-3d8c-4511-9d42-f347ed9bdafb" />
 
 # LEMBAR PEER YANG DIISI TEMAN
-<img width="582" height="685" alt="image" src="https://github.com/user-attachments/assets/df072164-7e21-492b-b635-8b14f74cffa4" />
+<img width="868" height="1156" alt="WhatsApp Image 2026-11-02 at 9 14 43 PM" src="https://github.com/user-attachments/assets/4c4e0793-5061-4cf8-8061-253db1108035" />
+<img width="868" height="1156" alt="WhatsApp Image 2026-11-02 at 9 14 44 PM" src="https://github.com/user-attachments/assets/2b40f558-df0d-4c68-9ee9-45f9700fbceb" />
+
+

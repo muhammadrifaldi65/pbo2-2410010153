@@ -29,4 +29,5 @@
 <img width="868" height="1156" alt="WhatsApp Image 2026-11-02 at 9 14 43 PM" src="https://github.com/user-attachments/assets/4c4e0793-5061-4cf8-8061-253db1108035" />
 <img width="868" height="1156" alt="WhatsApp Image 2026-11-02 at 9 14 44 PM" src="https://github.com/user-attachments/assets/2b40f558-df0d-4c68-9ee9-45f9700fbceb" />
 
-
+# YANG DICOMMIT 
+p06 : Memperbaiki form yang kurang rapi dan mengecek apakah digit npm menjadi 0 lagi dan ternyata sudah menjadi 0

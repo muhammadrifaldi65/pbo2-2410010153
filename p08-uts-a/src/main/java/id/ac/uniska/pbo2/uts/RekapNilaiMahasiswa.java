@@ -4,21 +4,47 @@
  */
 package id.ac.uniska.pbo2.uts;
 
+import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
  * @author FERDY
  */
 public class RekapNilaiMahasiswa extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RekapNilaiMahasiswa.class.getName());
+    private final NilaiMahasiswaTableModel model
+            = new NilaiMahasiswaTableModel();
 
     /**
      * Creates new form RekapNilaiMahasiswa
      */
     public RekapNilaiMahasiswa() {
         initComponents();
+        nilaiTable.setModel(model);
+        npmField.putClientProperty("JTextField.placeholderText", "Contoh: 2410010123");
+        nilaiTugasField.putClientProperty("JTextField.placeholderText", "0 dari 100");
+        nilaiUtsField.putClientProperty("JTextField.placeholderText", "0 dari 100");
+        nilaiUasField.putClientProperty("JTextField.placeholderText", "0 dari 100");
+        perbaruiRingkasan();
+                for (JLabel pesan : List.of(salahLabel)) {
+            pesan.putClientProperty("FlatLaf.styleClass", "small");
+            pesan.setForeground(warnaKesalahan());
+        }
+        statusLabel.setForeground(warnaKesalahan());
+        getRootPane().setDefaultButton(simpanButton);
+        pack();
+        setMinimumSize(getSize());
+        setLocationRelativeTo(null);
+
     }
 
     /**
@@ -43,16 +69,17 @@ public class RekapNilaiMahasiswa extends javax.swing.JFrame {
         nilaiUasLabel = new javax.swing.JLabel();
         nilaiUasField = new javax.swing.JTextField();
         bawahPanel = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        salahLabel = new javax.swing.JLabel();
         buttonPanel = new javax.swing.JPanel();
         simpanButton = new javax.swing.JButton();
         bersihkanButton = new javax.swing.JButton();
         tabelPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        nilaiScrollPane = new javax.swing.JScrollPane();
+        nilaiTable = new javax.swing.JTable();
         statusLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Rekap Nilai Mahasiswa");
 
         kiriIsianPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 8, 8, 8));
         kiriIsianPanel.setLayout(new java.awt.BorderLayout(0, 8));
@@ -62,37 +89,72 @@ public class RekapNilaiMahasiswa extends javax.swing.JFrame {
 
         npmLabel.setText("NPM");
         isianPanel.add(npmLabel);
+
+        npmField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                npmFieldFocusLost(evt);
+            }
+        });
+        npmField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                npmFieldKeyTyped(evt);
+            }
+        });
         isianPanel.add(npmField);
 
         namaLabel.setText("NAMA");
         isianPanel.add(namaLabel);
+
+        namaField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                namaFieldFocusLost(evt);
+            }
+        });
         isianPanel.add(namaField);
 
         nilaiTugas.setText("NILAI TUGAS");
         isianPanel.add(nilaiTugas);
+
+        nilaiTugasField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nilaiTugasFieldFocusLost(evt);
+            }
+        });
         isianPanel.add(nilaiTugasField);
 
         nilaiUtsLabel.setText("NILAI UTS");
         isianPanel.add(nilaiUtsLabel);
 
-        nilaiUtsField.addActionListener(this::nilaiUtsFieldActionPerformed);
+        nilaiUtsField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nilaiUtsFieldFocusLost(evt);
+            }
+        });
         isianPanel.add(nilaiUtsField);
 
         nilaiUasLabel.setText("NILAI UAS ");
         isianPanel.add(nilaiUasLabel);
+
+        nilaiUasField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nilaiUasFieldFocusLost(evt);
+            }
+        });
         isianPanel.add(nilaiUasField);
 
         kiriIsianPanel.add(isianPanel, java.awt.BorderLayout.NORTH);
 
         bawahPanel.setLayout(new java.awt.BorderLayout());
 
-        jLabel2.setText(" ");
-        bawahPanel.add(jLabel2, java.awt.BorderLayout.PAGE_START);
+        salahLabel.setText(" ");
+        bawahPanel.add(salahLabel, java.awt.BorderLayout.PAGE_START);
 
         simpanButton.setText("Simpan");
+        simpanButton.addActionListener(this::simpanButtonActionPerformed);
         buttonPanel.add(simpanButton);
 
         bersihkanButton.setText("Bersihkan");
+        bersihkanButton.addActionListener(this::bersihkanButtonActionPerformed);
         buttonPanel.add(bersihkanButton);
 
         bawahPanel.add(buttonPanel, java.awt.BorderLayout.PAGE_START);
@@ -104,7 +166,7 @@ public class RekapNilaiMahasiswa extends javax.swing.JFrame {
         tabelPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 8, 8, 8));
         tabelPanel.setLayout(new java.awt.BorderLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        nilaiTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -115,9 +177,9 @@ public class RekapNilaiMahasiswa extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        nilaiScrollPane.setViewportView(nilaiTable);
 
-        tabelPanel.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        tabelPanel.add(nilaiScrollPane, java.awt.BorderLayout.CENTER);
 
         statusLabel.setText(" ");
         tabelPanel.add(statusLabel, java.awt.BorderLayout.SOUTH);
@@ -127,9 +189,82 @@ public class RekapNilaiMahasiswa extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nilaiUtsFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nilaiUtsFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nilaiUtsFieldActionPerformed
+    private void npmFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_npmFieldFocusLost
+        if (!npmField.getText().isBlank()) {
+            periksaNpm();
+        }
+    }//GEN-LAST:event_npmFieldFocusLost
+
+    private void namaFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_namaFieldFocusLost
+        if (!namaField.getText().isBlank()) {
+            periksaNama();
+        }
+    }//GEN-LAST:event_namaFieldFocusLost
+
+    private void nilaiTugasFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nilaiTugasFieldFocusLost
+        if (!nilaiTugasField.getText().isBlank()) {
+            periksaTugas();
+        }
+    }//GEN-LAST:event_nilaiTugasFieldFocusLost
+
+    private void nilaiUtsFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nilaiUtsFieldFocusLost
+        if (!nilaiUtsField.getText().isBlank()) {
+            periksaUts();
+        }
+    
+    }//GEN-LAST:event_nilaiUtsFieldFocusLost
+
+    private void nilaiUasFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nilaiUasFieldFocusLost
+        if (!nilaiUasField.getText().isBlank()) {
+            periksaUas();
+        }
+    }//GEN-LAST:event_nilaiUasFieldFocusLost
+
+    private void simpanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanButtonActionPerformed
+
+    String npm = npmField.getText().trim();
+    String nama = namaField.getText().trim();
+
+    int tugas = Integer.parseInt(
+        nilaiTugasField.getText().trim()
+    );
+
+    int uts = Integer.parseInt(
+        nilaiUtsField.getText().trim()
+    );
+
+    int uas = Integer.parseInt(
+        nilaiUasField.getText().trim()
+    );
+
+    NilaiMahasiswa mahasiswa =
+        new NilaiMahasiswa(
+            npm,
+            nama,
+            tugas,
+            uts,
+            uas
+        );
+
+    model.tambahData(mahasiswa);
+
+    statusLabel.setText("");
+
+    perbaruiRingkasan();
+    simpan();
+    }//GEN-LAST:event_simpanButtonActionPerformed
+
+    private void bersihkanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bersihkanButtonActionPerformed
+        bersihkan();
+    }//GEN-LAST:event_bersihkanButtonActionPerformed
+
+    private void npmFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_npmFieldKeyTyped
+        boolean penuh = npmField.getText().length() >= 10
+                && npmField.getSelectedText() == null;
+        if (!Character.isDigit(evt.getKeyChar()) || penuh) {
+            evt.consume(); // karakter tidak dimasukkan ke isian
+        }
+    }//GEN-LAST:event_npmFieldKeyTyped
 
     /**
      * @param args the command line arguments
@@ -146,12 +281,11 @@ public class RekapNilaiMahasiswa extends javax.swing.JFrame {
     private javax.swing.JButton bersihkanButton;
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JPanel isianPanel;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JPanel kiriIsianPanel;
     private javax.swing.JTextField namaField;
     private javax.swing.JLabel namaLabel;
+    private javax.swing.JScrollPane nilaiScrollPane;
+    private javax.swing.JTable nilaiTable;
     private javax.swing.JLabel nilaiTugas;
     private javax.swing.JTextField nilaiTugasField;
     private javax.swing.JTextField nilaiUasField;
@@ -160,8 +294,103 @@ public class RekapNilaiMahasiswa extends javax.swing.JFrame {
     private javax.swing.JLabel nilaiUtsLabel;
     private javax.swing.JTextField npmField;
     private javax.swing.JLabel npmLabel;
+    private javax.swing.JLabel salahLabel;
     private javax.swing.JButton simpanButton;
     private javax.swing.JLabel statusLabel;
     private javax.swing.JPanel tabelPanel;
     // End of variables declaration//GEN-END:variables
+private void perbaruiRingkasan() {
+
+        int jumlah = model.getJumlahMahasiswa();
+
+        double rataRata = model.getRataRata();
+
+        String hasil = String.format(
+                java.util.Locale.forLanguageTag("id-ID"),
+                "Jumlah mahasiswa: %d, rata-rata nilai akhir: %.2f",
+                jumlah,
+                rataRata
+        );
+
+        statusLabel.setText(hasil);
+    }
+
+    private boolean periksaNpm() {
+        return tandai(npmField, salahLabel, ValidatorNilai.npm(npmField.getText()));
+    }
+
+    private boolean periksaNama() {
+        return tandai(namaField, salahLabel, ValidatorNilai.nama(namaField.getText()));
+    }
+
+    private boolean periksaTugas() {
+        return tandai(nilaiTugasField, salahLabel, ValidatorNilai.tugas(nilaiTugas.getText()));
+    }
+
+    private boolean periksaUts() {
+        return tandai( nilaiUtsField, salahLabel, ValidatorNilai.uts(nilaiUtsField.getText()));
+    }
+
+    private boolean periksaUas() {
+        return tandai(nilaiTugasField, salahLabel, ValidatorNilai.uas(nilaiUasField.getText()));
+    }
+    
+    private void simpan() {
+// Semua isian diperiksa agar pengguna melihat seluruh kesalahan sekaligus
+        List<JComponent> salah = new ArrayList<>();
+        if (!periksaNpm()) {
+            salah.add(npmField);
+        }
+        if (!periksaNama()) {
+            salah.add(namaField);
+        }
+        if (!periksaTugas()) {
+            salah.add(nilaiTugasField);
+        }
+        if (!periksaUts()) {
+            salah.add(nilaiUtsField);
+        }
+        if (!periksaUas()) {
+            salah.add(nilaiUasField);
+        }
+    }  
+    private void bersihkan() {
+// Aksi yang menghapus data meminta konfirmasi terlebih dahulu
+        if (adaIsian()) {
+            int jawab = JOptionPane.showConfirmDialog(this,
+                    "Data yang sudah diisi akan dihapus. Lanjutkan?", "Konfirmasi",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+
+            if (jawab != JOptionPane.YES_OPTION) {
+                return;
+            }
+        }
+        kosongkan();
+    }
+    
+    private boolean adaIsian() {
+        return !npmField.getText().isBlank() || !namaField.getText().isBlank()
+                || !nilaiTugasField.getText().isBlank() || !nilaiUtsField.getText().isBlank()
+                || !nilaiUasField.getText().isBlank();
+    }
+     private void kosongkan() {
+        for (JTextField isian : List.of(npmField, namaField, nilaiTugasField, nilaiUtsField, nilaiUasField)) {
+            isian.setText("");
+        }
+
+        tandai(npmField, salahLabel, null);
+        tandai(namaField, salahLabel, null);
+        tandai(nilaiTugasField, salahLabel, null);
+        tandai(nilaiUtsField, salahLabel, null);
+        tandai(nilaiUasField, salahLabel, null);
+        statusLabel.setText(" ");
+        npmField.requestFocusInWindow();
+    }   
+    static Color warnaKesalahan() {
+        return FlatLaf.isLafDark() ? new Color(0xFF8A80) : new Color(0xC62828);
+    }
+
+    private boolean tandai(JTextField npmField, JLabel salahLabel, String npm) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
